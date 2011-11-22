@@ -1,0 +1,7 @@
+parameters:
+#    tvision_bundles_user.example.class: Tvision\Bundles\UserBundle\Example
+
+services:
+#    tvision_bundles_user.example:
+#        class: %tvision_bundles_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
