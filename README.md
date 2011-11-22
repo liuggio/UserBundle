@@ -4,7 +4,7 @@ created wit git-flow
 Install
 ----------
 
-	git submodule add git@github.com:liuggio/UserBundle.git  src/liuggio/Bundles/UserBundle
+	git submodule add git@github.com:liuggio/UserBundle.git  src/Tvision/Bundles/UserBundle
 	git submodule update --init
 	(you need to switch to the develop branch?)
 
@@ -14,7 +14,7 @@ Install
 
 	# User/Group
 	TvisionBundlesUserBundle:
-	    resource: "@liuggioBundlesUserBundle/Resources/config/routing.yml"
+	    resource: "@TvisionBundlesUserBundle/Resources/config/routing.yml"
 	    prefix:   /
 
 1) add into your project this security
@@ -79,3 +79,7 @@ app/security.yml
 
 
 2) load fixture
+
+3) If you are not a Tvision user, you should modify the tempate
+
+resources/view 
