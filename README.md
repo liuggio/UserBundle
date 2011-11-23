@@ -1,8 +1,17 @@
 Not stable see develop branch
 created wit git-flow
 
+Dependency
+----------
+	Liuggio/UserBundle uses the https://github.com/liip/LiipFunctionalTestBundle
+	for some test shortcut and facilities.
+	
+	Or you install LIIP it or you remove the Test folder.
+
+
 Install
 ----------
+
 
 	git submodule add git@github.com:liuggio/UserBundle.git  src/Tvision/Bundles/UserBundle
 	git submodule update --init

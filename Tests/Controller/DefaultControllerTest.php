@@ -2,16 +2,16 @@
 
 namespace Tvision\Bundles\UserBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
-{
-    public function testIndex()
-    {
+{     
+    public function testLoginRoute()
+    {        
         $client = static::createClient();
-
-        $crawler = $client->request('GET', '/hello/Fabien');
-
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
-    }
+        $route = $this->getUrl('fos_user_security_login');        
+        $crawler = $client->request('GET', $rotta);
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }    
+       
 }
