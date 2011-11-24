@@ -1,10 +1,9 @@
 {% extends 'TvisionBundlesStatBundle:Default:index.html.twig' %}
 
-{% block login %}
-          <div class="gadget">
+{% block content %}
+          <div class="article">
           <h2>Login</h2>
         
-    
             {% for key, message in app.session.getFlashes() %}
             <div class="{{ key }}">
                 {{ message|trans({}, 'FOSUserBundle') }}
@@ -14,7 +13,9 @@
             <div>
                 {% block fos_user_content %}
                 {% endblock fos_user_content %}
-            </div>
-         
+            </div>         
        </div>
+    {{ parent() }}
 {% endblock %}
+
+
