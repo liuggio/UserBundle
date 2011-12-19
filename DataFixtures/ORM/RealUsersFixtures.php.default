@@ -1,0 +1,47 @@
+<?php
+
+namespace Tvision\Bundles\UserBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Tvision\Bundles\UserBundle\Entity\User;
+
+class RealUsersFixtures implements FixtureInterface, ContainerAwareInterface
+{
+    private $container;
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
+    public function load($em)
+    {
+
+        $factory = $this->container->get('security.encoder_factory');
+    
+        $users = array(
+            array(
+                "username" => "name",
+                "password" => "pass",
+                "email" => "user@terravision.eu"
+            ),  
+            // Put Users Here
+        );
+
+        foreach($users as $user) {
+            $entity = new User();
+            $encoder = $factory->getEncoder($entity);
+            $entity->setUsername($user['username']);
+            $entity->setPassword($encoder->encodePassword($user['password'], $entity->getSalt()));
+            $entity->setEmail($user['email']);
+            $entity->setEnabled(true);
+
+            $em->persist($entity);
+
+            $em->flush();
+
+        }
+    }
+}
